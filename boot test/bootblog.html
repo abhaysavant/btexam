@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog </title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .blog-card {
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-footer {
+            background: transparent;
+            border-top: none;
+        }
+
+        .blog-tag {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="blog-section py-5">
+        <div class="container">
+         
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h6 class="text-primary text-uppercase">Our Blog</h6>
+                    <h2 class="mb-4">Latest Blog</h2>
+                    <p class="text-muted">Stay updated with our latest insights and news</p>
+                </div>
+            </div>
+
+            
+            <div class="row g-4">
+                <!-- Blog Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card blog-card shadow-sm">
+                        <img src="25AI.jpg" class="card-img-top blog-image" alt="Blog Image">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-primary blog-tag">Technology</span>
+                                <span class="badge bg-secondary blog-tag">News</span>
+                            </div>
+                            <h5 class="card-title">The Future of AI in 2025</h5>
+                            <p class="card-text text-muted">Explore the latest trends and innovations in artificial intelligence and their impact on various industries.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <small class="text-muted">5 min read</small>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card blog-card shadow-sm">
+                        <img src="trend.jfif" class="card-img-top blog-image" alt="Blog Image">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-success blog-tag">Design</span>
+                                <span class="badge bg-info blog-tag">UI/UX</span>
+                            </div>
+                            <h5 class="card-title">Design Trends for Modern Web</h5>
+                            <p class="card-text text-muted">Discover the latest design trends that are shaping the modern web development landscape.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <small class="text-muted">4 min read</small>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card blog-card shadow-sm">
+                        <img src="mark.jpg" class="card-img-top blog-image" alt="Blog Image">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-warning blog-tag">Business</span>
+                                <span class="badge bg-danger blog-tag">Strategy</span>
+                            </div>
+                            <h5 class="card-title">Digital Marketing Strategies</h5>
+                            <p class="card-text text-muted">Learn effective digital marketing strategies to grow your business in the current market.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <small class="text-muted">6 min read</small>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .d1{
+            height: 100px;
+            width: 100px;
+            
+            animation-name:ab;
+            animation-duration:5s;
+            animation-direction: normal;
+            animation-iteration-count:100 ;
+            
+            
+        }
+        @keyframes ab {
+            0%{ transform:translate(0,0);
+                background: yellow;
+            
+            }
+            25%{transform:translate(90vw,90vh);
+                background: black; }
+            50%{transform:translate(0,90vh);
+                background: blue;}
+            75%{transform:translate(90vw,0);
+                background:goldenrod ;}
+           
+        }
+        .d1:hover{
+            animation-play-state:paused;
+        }
+    </style>
+</head>
+<body>
+    
+  <div class="d1">
+    
+  </div>  
+  
+</body>
+</html>

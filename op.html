@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Savant - Frontend Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-dark: #1a1a2e;
+            --background-light: #16213e;
+            --text-color: #e9e9e9;
+            --card-background: #0f3460;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Smooth scrolling and section padding */
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(52,98,219,0.2), transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        .about-image img {
+            max-width: 350px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 15px 50px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background-color: var(--card-background);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .form-control {
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-image img {
+                max-width: 250px;
+            }
+
+            .skill-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ABHAY SAVANT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">SKILLS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">PROJECTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-content">
+                        <h1>ABHAY SAVANT</h1>
+                        <h2>Frontend Developer</h2>
+                        <p class="lead mb-4">
+                            Transforming digital landscapes with elegant code and innovative design solutions.
+                            Passionate about creating seamless, user-centric web experiences.
+                        </p>
+                        <a href="#contact" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i>Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="about-image">
+                        <img src="ROBERT.jfif" alt="Abhay Savant" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h2 class="display-6 mb-4 text-primary">About Me</h2>
+                    <p class="lead">
+                        A creative Frontend Developer with a passion for crafting immersive digital experiences. 
+                        My approach combines technical expertise with design thinking to build responsive, 
+                        intuitive web applications that solve real-world problems.
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="btn btn-outline-primary me-2">
+                            <i class="fab fa-linkedin me-2"></i>LinkedIn
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary me-2">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                        <a href="#" class="btn btn-outline-info">
+                            <i class="fab fa-twitter me-2"></i>Twitter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="display-6 text-center mb-5 text-primary">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3 class="h4 mb-3">HTML5</h3>
+                    <p>Semantic markup and accessibility expertise</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <h3 class="h4 mb-3">CSS3</h3>
+                    <p>Advanced styling and responsive design</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon"></i>
+                    <h3 class="h4 mb-3">JavaScript</h3>
+                    <p>Modern ES6+ programming techniques</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react skill-icon"></i>
+                    <h3 class="h4 mb-3">React</h3>
+                    <p>Component-based application development</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <h3 class="h4 mb-3">Git</h3>
+                    <p>Version control and collaborative workflows</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-dark">
+        <div class="container">
+            <h2 class="display-6 text-center mb-5 text-primary">Featured Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="/api/placeholder/400/250" alt="E-Commerce Platform" class="img-fluid">
+                        <div class="p-4">
+                            <h3 class="h4 mb-3">E-Commerce Platform</h3>
+                            <p>Full-stack React application with advanced state management</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary">
+                                    <i class="fab fa-github me-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="/api/placeholder/400/250" alt="Task Management App" class="img-fluid">
+                        <div class="p-4">
+                            <h3 class="h4 mb-3">Task Management App</h3>
+                            <p>Collaborative productivity tool with real-time updates</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary">
+                                    <i class="fab fa-github me-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="/api/placeholder/400/250" alt="Weather Dashboard" class="img-fluid">
+                        <div class="p-4">
+                            <h3 class="h4 mb-3">Weather Dashboard</h3>
+                            <p>Responsive weather tracking with geolocation</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary">
+                                    <i class="fab fa-github me-2"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="contact-form">
+                        <h2 class="display-6 text-center mb-4 text-primary">Contact Me</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-envelope me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class

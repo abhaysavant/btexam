@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> A JEWELLERYS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{ margin:0px;}
+        .d1 {
+            background-color: black;
+            text-align: center;
+            padding: 10px;
+            height: ;
+        }
+
+        .d2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+        }
+
+        .group {
+            display: flex;
+            align-items: center;
+        }
+
+        .d3 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            flex-wrap: wrap;
+            background-color: #f8f8f8;
+        }
+
+        .d4 {
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+        }
+
+        .d4 img {
+            width: 100%;
+            height: auto;
+        }
+
+        .fill {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .d5 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .dd51 {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .b1 {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Max-width Media Queries */
+        @media screen and (max-width: 1200px) {
+            .d5 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .d3 {
+                gap: 10px;
+            }
+
+            .d3 .1 {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .d2 {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .d5 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .fill {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .d1 {
+                font-size: 14px;
+            }
+
+            .d3 {
+                display: none;
+            }
+
+            .dd51 {
+                padding: 10px;
+            }
+        }
+
+        /* Max-height Media Queries */
+        @media screen and (max-height: 800px) {
+            .d4 {
+                max-height: 400px;
+            }
+
+            .dd51 {
+                padding: 12px;
+            }
+        }
+
+        @media screen and (max-height: 600px) {
+            .d4 {
+                max-height: 300px;
+            }
+
+            .d1 {
+                padding: 5px;
+            }
+
+            .d2 {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-height: 500px) {
+            .d4 {
+                max-height: 200px;
+            }
+
+            .d5 {
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .dd51 {
+                padding: 8px;
+            }
+        }
+
+        /* Combined Media Queries */
+        @media screen and (max-width: 576px) and (max-height: 500px) {
+            .d4 {
+                display: none;
+            }
+
+            .fill {
+                padding: 10px;
+            }
+
+            .b1 {
+                width: 150px;
+                margin: 10px auto;
+            }
+        }
+
+        /* Navigation items */
+        .fev, .acc, .wis, .kar, .stor {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        /* Price styling */
+        [style*="font-size: 30px"] {
+            display: block;
+            margin: 10px 0;
+            color: #007bff;
+        }
+
+        /* Icons and logos */
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .d1{
+            height:40px;
+            background: rgb(242, 140, 140);
+            line-height: 40px;
+
+        }
+        .d2{
+            height: 100px;
+            background: #F2D2BD;
+
+
+        }
+        
+        .logo{
+          width: 100px;
+          height: 100px;
+          background-image:url(2.png) ;
+          mix-blend-mode:darken;
+          position: absolute;
+          background-size: cover;
+          margin-left: 50px;
+
+        }
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: absolute;
+    width: 800px;
+    margin-top: 30px;
+    margin-left: 250px;
+  }
+  
+  .input {
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    width: 100%;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #D9E8D8;
+    color: #0d0c22;
+    box-shadow: 0 0 5px #C1D9BF, 0 0 0 10px #f5f5f5eb;
+    transition: .3s ease;
+  }
+  
+  .input::placeholder {
+    color: #777;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #777;
+    width: 1rem;
+    height: 1rem;}
+
+  .fa-user {
+    margin-top:40px ;
+    font-size: 25px;
+    margin-left: 1150px;
+    position:absolute;
+    color: black;
+
+
+
+  }
+  .fa-heart{ 
+    margin-top:40px ;
+    font-size: 25px;
+    margin-left:1220px ;
+    position: absolute;
+
+  }
+   .fa-cart-shopping{
+    margin-top:40px ;
+    font-size: 25px;
+    margin-left:1285px ;
+    position: absolute;
+  }
+  .fa-store{
+    margin-top:40px ;
+    font-size: 25px;
+    margin-left:1350px ;
+    position: absolute;
+
+
+  }
+
+  .fa-star{
+    margin-top:40px ;
+    font-size: 25px;
+    margin-left:1410px ;
+    position: absolute;
+
+
+  }
+  .fev{
+    position: absolute;
+    margin-top: 70px;
+    margin-left:1407px ;
+   font-size: 10px;
+    
+  }
+  .acc{
+    position: absolute;
+    margin-top: 70px;
+    margin-left:1140px ;
+    font-size: 10px;
+  }
+  .wis{
+    position: absolute;
+    margin-top: 70px;
+    margin-left:1210px ;
+    font-size: 10px;
+  }
+  .kar{
+    position: absolute;
+    margin-top: 70px;
+    margin-left:1288px;
+    font-size: 10px;
+  }
+  .stor{
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 1350px ;
+    font-size: 10px;
+  }
+  .d3{
+    height:80px ;
+    background: #f3f1ef7f;
+    display: flex;
+    flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+  }
+  .d4{
+    height: 250px;
+    width: 100%;
+  }
+  .img1{
+    width: 100%;
+  }
+  .d5{
+    height: 550px;
+    background: rgb(244, 247, 246);
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    align-items: center;
+    
+    max-width: 1519px;
+    overflow: hidden;
+    
+
+  }
+  .d51{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw1.webp);
+    background-size: cover;
+    border-radius: 15px;
+  }
+
+  .d51:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw1.1.webp);
+    background-size: cover;
+    border-radius: 15px;
+  
+  }
+  .d52{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw2.webp);
+    background-size: cover;
+    border-radius: 15px;
+
+  }
+
+  .d52:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw2.2.webp);
+  }
+  .d53{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw3.webp);
+    border-radius: 15px;
+
+
+  }
+  .d53:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw3.3.webp);
+    background-size: cover;
+
+  }
+  .fill{
+    height: 130px;
+    background: white;
+  }
+  .f1{
+    line-height: 40px;
+    margin-left: 80px;
+  }
+  .f2{
+    border: solid rgba(0, 0, 0, 0.156) 1px;
+    position: absolute;
+    display: flex;
+    height:50px ;
+    margin-left: 270px;
+    width:120px ;
+    margin-top:20px ;
+    border-radius: 25px;
+    align-items: center;
+    font-size: 18px;
+    justify-content: space-evenly;
+  }
+  .fa-filter{
+    font-size: 30px;
+    line-height:60px ;
+    
+
+  }
+  .f3{
+    border: solid rgba(0, 0, 0, 0.156) 1px;
+    position: absolute;
+    display: flex;
+    height:50px ;
+    margin-left: 1350px;
+    width:120px ;
+    margin-top:20px ;
+    border-radius: 25px;
+    align-items: center;
+    font-size: 17px;
+    justify-content: space-evenly;
+  }
+  
+  .dd51{
+    margin-top: 400px;
+    background: rgb(244, 247, 246);
+    font-size: 22px;
+  }
+  .d54{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw4.webp);
+    border-radius: 15px;
+  }
+  .d54:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw4.4.webp);
+    background-size: cover;
+
+  }
+
+  .d55{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw5.webp);
+    border-radius: 15px;
+
+
+  }
+  .d55:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw5.5.webp);
+    background-size: cover;
+
+  }
+  .d56{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw6.webp);
+    border-radius: 15px;
+
+
+  }
+  .d56:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw6.6.webp);
+    background-size: cover;
+
+  }
+  .d57{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw7.webp);
+    border-radius: 15px;
+
+
+  }
+  .d57:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw7.7.webp);
+    background-size: cover;
+
+  }
+  .d58{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw8.webp);
+    border-radius: 15px;
+
+
+  }
+  .d58:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw8.8.webp);
+    background-size: cover;
+
+  }
+  .d59{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw9.webp);
+    border-radius: 15px;
+
+
+  }
+  .d59:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw9.9.webp);
+    background-size: cover;
+
+  }
+  .df{
+    height: 600px;
+    background: rgb(244, 247, 246);
+    display: flex;
+    
+    align-items: center;
+    
+    max-width: 1519px;
+    overflow: hidden;
+    
+
+  }
+
+  .d510{
+    height: 400px;
+    width:400px ;
+    background: white;
+    background-size: cover;
+    background-image:url(jw10.webp);
+    border-radius: 15px;
+    position: absolute;
+    margin-left: 80px;
+  }
+  .d510:hover{
+    height: 400px;
+    width:400px ;
+    background-image:url(jw10.1.webp);
+    background-size: cover;
+
+  }
+  .d6{
+    background: rgba(255, 255, 255, 0.759);
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+.button1 {
+  background: linear-gradient(140.14deg, #ec540eb0 15.05%, #d6371fa2 114.99%)
+      padding-box,
+    linear-gradient(142.51deg, #ff9465 8.65%, #af1905 88.82%) border-box;
+  border-radius: 7px;
+  border: 2px solid transparent;
+
+  text-shadow: 1px 1px 1px #00000040;
+  box-shadow: 8px 8px 20px 0px #45090059;
+
+  padding: 10px 40px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  
+}
+
+.button1:hover {
+  box-shadow: none;
+  opacity: 80%;
+}
+@media screen and (max-width: 425px) {
+
+  .d1{
+    max-width: 426px;
+
+  }
+  .d2{
+    max-width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+
+  }
+  .group {
+            display: flex;
+            align-items: center;
+            max-width: 150px;
+            margin-left: ;
+        }
+
+}
+
+  
+
+
+  
+    </style>
+        
+
+
+
+    
+</head>
+<body>
+    <div class="d1">
+       <cent <h4>Diwali sale is live</h4> </center>
+
+        
+    </div>
+    <div class="d2">
+        <div class="logo">
+            
+        </div>
+<div class="group">
+    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+        <g>
+            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+        </g>
+    </svg>
+    <input placeholder="Search for diamond & gold jewellery " type="search" class="input">
+</div>
+<a href="loginpage.html" target="_blank" ><i class="fa-solid fa-user"></i> 
+<div class="fev">FESTIVE</div> </a>
+
+<i class="fa-solid fa-heart"></i>  
+<div class="acc"> ACCOUNT</div> 
+
+<i class="fa-solid fa-cart-shopping"></i> 
+<div class="wis">WISHLIST</div>
+
+<i class="fa-solid fa-store"></i>
+<div class="kar">KART</div>
+
+<i class="fa-solid fa-star"></i>
+      <div class="stor">STORE</div>  
+    
+    
+    </div>
+
+   <div class="d3">
+    
+    <div class="1">All JEWELLERY</div>
+    <div class="1"> GOLD</div>
+    <div class="1">DIAMOND</div>
+        <div class="1">EARRING</div>
+            <div class="1">RINGS</div>
+                <div class="1">DIGITAL GOLD</div>
+                    <div class="1">MIA</div>
+                        <div class="1">COLLECTION</div>
+                           <div class="1">WEDDING</div>
+                                 <div class="1">GIFING</div>
+                                    <div class="1">GOLDN HARVEST</div>
+                                     <div class="1">MORE</div>
+                                        
+
+   </div> 
+
+   <div class="d4">
+    <img src="jlw.jpg" class="img1">
+   </div>
+   <div class="fill">
+
+    <div class="f1">
+    <h2>
+    ALL &nbsp; JEWELLERYS 
+    </h2>
+    </div>
+    <div class="f2">
+        <i class="fa-solid fa-filter"></i>Filter 
+    </div>
+    <div class="f3">
+        SHORT&nbsp;BY
+    </div>
+
+   </div>
+
+   <div class="d5">
+
+    <div class="d51"> 
+         
+        <div class="dd51">
+            &nbsp; Embrace Hearts Diamond Hoop Earrings<br>&nbsp;
+
+<span style="font-size: 30px;">₹ 34069</span> 
+Only 1 left!
+
+        </div>
+
+         </div>
+
+    <div class="d52">
+        <div class="dd51">
+            &nbsp; Ethereal Infusion Diamond Pendant
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 29032</span> 
+Only 8 left!
+
+        </div>
+
+         </div>
+
+    <div class="d53">
+        <div class="dd51">
+            &nbsp; Grand Cluster Diamond Heart Ring
+
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 31145</span> 
+Only 27 left!
+
+        </div>
+
+         </div>
+
+ </div>
+
+
+ <div class="d5">
+
+    <div class="d54">
+        <div class="dd51">
+            &nbsp;Teardrop Shaped Yellow Gold and Diamond
+
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 38145</span> 
+Only 1 left!
+</div>
+
+         </div>
+
+    <div class="d55">
+        <div class="dd51">
+            &nbsp;Teardrop Shaped Yellow Gold and Diamond
+
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 35725</span> 
+Only 1 left!
+</div>
+
+         </div>
+
+    <div class="d56">
+        <div class="dd51">
+            &nbsp;Teardrop Shaped Yellow Gold and Diamond
+
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 48145</span> 
+Only 1 left!
+</div>
+
+         </div>
+
+         
+
+</div>
+
+<div class="d5">
+
+    <div class="d57"> 
+         
+        <div class="dd51">
+            &nbsp; Embrace Hearts Diamond Hoop Earrings<br>&nbsp;
+
+<span style="font-size: 30px;">₹ 34069</span> 
+Only 1 left!
+
+        </div>
+
+         </div>
+
+    <div class="d58">
+        <div class="dd51">
+            &nbsp; Ethereal Infusion Diamond Pendant
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 29032</span> 
+Only 1 left!
+
+        </div>
+
+         </div>
+
+    <div class="d59">
+        <div class="dd51">
+            &nbsp; Grand Cluster Diamond Heart Ring
+
+            <br>&nbsp;
+
+<span style="font-size: 30px;">₹ 31145</span> 
+Only 1 left!
+
+        </div>
+
+         </div>
+
+         </div>
+
+         <div class="df">
+
+            <div class="d510"> 
+                 
+                <div class="dd51">
+                    &nbsp; Radiant Rows Diamond Finger Ring<br>&nbsp;
+        
+        <span style="font-size: 30px;">₹ 19283</span> 
+        Only 1 left!
+        
+                </div>
+        
+                 </div>
+
+ </div>
+ <div class="d6">
+    <div class="b1">
+<button class="button1">LODE MORE</button>
+
+    </div>
+
+ </div>
+
+</body>
+</html>

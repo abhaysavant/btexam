@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLX Clone - Buy & Sell Near You</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            margin-right: 20px;
+            margin-left: -30px;
+        }
+
+        .logo img {
+            height: 32px;
+        }
+
+        .location {
+            border: 3px solid rgb(0, 0, 0);
+            padding: 20px;
+            width: 340px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .location:hover {
+            border: 3px solid #08e7f7;
+        }
+
+        .search-input {
+            border: none;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .location-text {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        .location-text::placeholder {
+            color: #000000;
+            padding-left: 17px;
+            font-size: 22px;
+        }
+
+        .dropdown-arrow {
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #888;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.493);
+            width: 100%;
+            max-height: 390px;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        .dropdown-menu div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu div:hover {
+            background-color: #f0f0f0;
+        }
+
+        .location:focus-within .dropdown-menu,
+        .dropdown-arrow:focus+.dropdown-menu {
+            display: block;
+        }
+
+        .location-option i {
+            color: rgb(0, 0, 0);
+            padding: 5px;
+        }
+
+
+        .search {
+            border: 3px solid rgb(0, 0, 0);
+            padding: 15px;
+            width: 1630px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            margin-left: 20px;
+        }
+
+        .search-label {
+            font-size: 22px;
+            color: #838181;
+            margin-right: 10px;
+        }
+
+        .search-main {
+            height: 63.5px;
+            width: 55px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            background-color: #21324b;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-container {
+            align-items: center;
+            margin-top: 10px;
+            height: 18px;
+            overflow: hidden;
+            margin-left: 10px;
+            flex-grow: 1;
+            color: #838181;
+            font-size: 17px;
+        }
+
+        .text-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 2s infinite;
+            width: auto;
+            text-align: left;
+            transition: opacity 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .text-item:nth-child(1) {
+            animation-delay: -3s;
+        }
+
+        .text-item:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .language-dropdown {
+            border: none;
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 17px;
+            color: #21324b;
+        }
+
+
+        .language-select {
+            border: none;
+            font-size: 18px;
+        }
+
+
+        .Login {
+            position: relative;
+            margin-left: 45px;
+            font-weight: bold;
+            color: #21324b;
+            font-size: 21px;
+        }
+
+        .Login::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            height: 3px;
+            width: 100%;
+            background-color: #21324b;
+            transition: opacity 0.3s;
+        }
+
+        .Login:hover::after {
+            opacity: 0;
+        }
+
+        .button {
+            position: relative;
+            background-color: transparent;
+            color: #e8e8e8;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 10px;
+            width: 150px;
+            height: 60px;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(51, 51, 51, 0.2);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            margin-left: 10px;
+        }
+
+        .button::before {
+            content: "PURCHASE";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(135deg, #7b4397, #dc2430);
+            transform: translate(0%, 90%);
+            z-index: 99;
+            position: relative;
+            transform-origin: bottom;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .button::after {
+            content: "SELL";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            transform-origin: top;
+            transform: translate(0%, -100%);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .button:hover::before {
+            transform: translate(0%, 0%);
+        }
+
+        .button:hover::after {
+            transform: translate(0%, -200%);
+        }
+
+        .button:focus {
+            outline: none;
+        }
+
+        .button:active {
+            scale: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Photo/OLX.png" alt="Logo">
+        </div>
+
+        <div class="location">
+            <i class="fas fa-search"></i>
+            <input type="text" class="location-text" placeholder="India" style="width: 120px;">
+            <span class="dropdown-arrow" tabindex="0"><i class="fas fa-chevron-down"></i></span>
+            <div class="dropdown-menu">
+                <div>
+                    <hr>
+                    <h5 style="padding-bottom: 30px;">
+                        <P style="font-weight: 100; color: #888; font-size: 16px;margin-top: 20px;margin-left: 10px;">
+                            RECENT LOCATIONS</P>
+                    </h5>
+                    <div class="location-option" style="font-size: 20px;"><i class="fas fa-map-marker-alt"
+                            style="margin-right: 10px;"></i> Bharuch </div>
+                    <hr>
+                    <P style="font-weight: 100; color: #888; font-size: 16px;margin-top: 20px;margin-left: 10px;">
+                        POPULAR LOCATIONS</P>
+                </div>
+                <div class="location-option" style="font-size: 20px;"><i class="fas fa-map-marker-alt"
+                        style="margin-right: 10px;margin-top: 17px;"></i> Kerala </div>
+                <div class="location-option" style="font-size: 20px;"><i class="fas fa-map-marker-alt"
+                        style="margin-right: 10px;margin-top: 17px;"></i> Tamil Nadu </div>
+                <div class="location-option" style="font-size: 20px;"><i class="fas fa-map-marker-alt"
+                        style="margin-right: 10px;margin-top: 17px;"></i> Punjab </div>
+                <div class="location-option" style="font-size: 20px;"><i class="fas fa-map-marker-alt"
+                        style="margin-right: 10px;margin-top: 17px;"></i> Maharasthra </div>
+            </div>
+        </div>
+
+        <div class="search">
+            <div class="search-label">Search</div>
+            <div class="text-container">
+                <div class="text-item">"Cars"</div>
+                <div class="text-item">"Mobiles"</div>
+            </div>
+            <input type="text" class="location-text" placeholder="">
+        </div>
+        <div class="search-main">
+            <i class="fas fa-search search-icon-1"></i>
+        </div>
+
+        <div class="language-dropdown">
+            <select class="language-select" style="font-weight: 700;color: #21324b;">
+                <option value="en">ENGLISH</option>
+                <option value="hi">हिन्दी</option>
+            </select>
+        </div>
+        <span class="Login">Login</span>
+        <button class="button"></button>
+        </div>
+    </nav>
+    
+    
+
+    <!-- Featured Products -->
+    <div class="container py-4">
+        <h2 class="h5 mb-4">Featured Products</h2>
+        <div class="row g-4">
+            <!-- Product Card 1 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card h-100 border-success">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5 
+                             class="card-img-top product-img" 
+                             alt="iPhone 13 Pro">
+                        <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-2 favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <span class="badge bg-success position-absolute top-0 start-0 m-2">Featured</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="price mb-0">$699</h5>
+                            <small class="text-muted">Mar 15</small>
+                        </div>
+                        <p class="card-text mt-2">iPhone 13 Pro - Perfect Condition</p>
+                        <small class="text-muted">
+                            <i class="bi bi-geo-alt me-1"></i>
+                            New York, NY
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" 
+                             class="card-img-top product-img" 
+                             alt="Modern Leather Sofa">
+                        <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-2 favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="price mb-0">$899</h5>
+                            <small class="text-muted">Mar 14</small>
+                        </div>
+                        <p class="card-text mt-2">Modern Leather Sofa</p>
+                        <small class="text-muted">
+                            <i class="bi bi-geo-alt me-1"></i>
+                            Los Angeles, CA
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb" 
+                             class="card-img-top product-img" 
+                             alt="Toyota Camry">
+                        <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-2 favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="price mb-0">$18,500</h5>
+                            <small class="text-muted">Mar 13</small>
+                        </div>
+                        <p class="card-text mt-2">Toyota Camry 2020</p>
+                        <small class="text-muted">
+                            <i class="bi bi-geo-alt me-1"></i>
+                            Chicago, IL
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card h-100 border-success">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9" 
+                             class="card-img-top product-img" 
+                             alt="MacBook Pro">
+                        <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-2 favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <span class="badge bg-success position-absolute top-0 start-0 m-2">Featured</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="price mb-0">$1,299</h5>
+                            <small class="text-muted">Mar 12</small>
+                        </div>
+                        <p class="card-text mt-2">MacBook Pro M1</p>
+                        <small class="text-muted">
+                            <i class="bi bi-geo-alt me-1"></i>
+                            San Francisco, CA
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Sell Button for Mobile -->
+    <button class="btn btn-success btn-floating rounded-circle shadow d-lg-none">
+        <i class="bi bi-plus-lg"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

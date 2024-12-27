@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Shadows Into';
+    src: url('ShadowsIntoLight.woff2') format('woff2'),
+        url('ShadowsIntoLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shadows Into';
+    src: url('ShadowsIntoLight.woff2') format('woff2'),
+        url('ShadowsIntoLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ewert';
+    src: url('Ewert-Regular.woff2') format('woff2'),
+        url('Ewert-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('DancingScript-Regular.woff2') format('woff2'),
+        url('DancingScript-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
